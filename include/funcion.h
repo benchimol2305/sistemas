@@ -14,4 +14,4 @@ void lifo(vector<Proceso>& procesos);
 void MejorProceso();
 
 
-#endif // FUNCIONES_H
+#endif 

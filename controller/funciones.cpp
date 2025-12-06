@@ -55,7 +55,7 @@ void fifo(vector<Proceso> &procesos)
     int procesados = 0;
     vector<bool> completados(procesos.size(), false); // Procesos completados
 
-    // Almacén temporal para los cálculos
+    // Almacen temporal para los calculos
     vector<Proceso> resultados = procesos;
 
     cout << "Resultados para FIFO:\n";
@@ -74,7 +74,7 @@ void fifo(vector<Proceso> &procesos)
             }
         }
 
-        // Si no hay procesos disponibles, avanzar el reloj al siguiente `ti`
+        // Si no hay procesos disponibles, avanzar el reloj al siguiente (ti)
         if (idx == -1)
         {
             int siguiente_ti = INT_MAX;
@@ -166,7 +166,7 @@ void roundRobin(vector<Proceso> &procesos, int quantum)
                 clk += tiempoEjecutado;
                 procesoEjecutado = true;
 
-                // Si el proceso termina, calcular métricas
+                // Si el proceso termina, calcular metricas
                 if (tiemposRestantes[i] == 0)
                 {
                     procesos[i].tf = clk;
@@ -178,7 +178,7 @@ void roundRobin(vector<Proceso> &procesos, int quantum)
             }
         }
 
-        // Si no se ejecuto ningún proceso, avanzar el reloj al siguiente tiempo de llegada
+        // Si no se ejecuto ningun proceso, avanzar el reloj al siguiente tiempo de llegada
         if (!procesoEjecutado)
         {
             int siguiente_ti = INT_MAX;
@@ -235,24 +235,24 @@ void lifo(vector<Proceso> &procesos)
     int procesados = 0;
     vector<bool> completados(procesos.size(), false); // Procesos completados
 
-    // Almacén temporal para los cálculos
+    // Almacen temporal para los calculos
     vector<Proceso> resultados = procesos;
     cout << "Resultados para LIFO:\n";
     while (procesados < procesos.size())
     {
         int idx = -1;
 
-        // Buscar el último proceso disponible en orden inverso
+        // Buscar el ultimo proceso disponible en orden inverso
         for (int i = procesos.size() - 1; i >= 0; --i)
         {
             if (!completados[i] && procesos[i].ti <= clk)
             {
                 idx = i;
-                break; // LIFO: Tomamos el último disponible
+                break; // LIFO: Toma el ultimo disponible
             }
         }
 
-        // Si no hay procesos disponibles, avanzar el reloj al siguiente `ti`
+        // Si no hay procesos disponibles, avanzar el reloj al siguiente (ti)
         if (idx == -1)
         {
             int siguiente_ti = INT_MAX;

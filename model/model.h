@@ -17,4 +17,4 @@ struct Proceso
     int tiempoRestante; // Tiempo restante para completar el proceso
 };
 
-#endif // MODEL_H
+#endif 
